@@ -11,7 +11,7 @@
 <div class="jumbotron" style="background-color: transparent;">
     <h1>Ordrer</h1>
 
-    <form action="/FrontController" method="post">
+    <form action="FrontController" method="post">
 
         <input type="hidden" name="source" value="orders"/>
 
@@ -63,7 +63,7 @@
         </table>
     </form>
 
-    <form action="/FrontController" method="post">
+    <form action="FrontController" method="post">
         <div class="float-right">
             <input type="hidden" name="source" value="cartcontrol"/>
             <button type="submit" name="action" value="shop" class="btn btn-primary">Shop videre</button>

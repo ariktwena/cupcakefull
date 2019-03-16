@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Olsker Cupcake Webshop</title>
-    <link href="../css/cupcake.css" rel="stylesheet" type="text/css">
+    <link href="css/cupcake.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -28,8 +28,8 @@
     <%
        // Check om brugeren er logget på
        Customer customer = (Customer)session.getAttribute("customer");
-       String username = "<a href=\"/login.jsp\">log på</a>";
-       String logout = " (<a href=\"/FrontController?source=logout\">log ud</a>)";
+       String username = "<a href=\"login.jsp\">log på</a>";
+       String logout = " (<a href=\"FrontController?source=logout\">log ud</a>)";
        int userid = 0;
        double balance = 0.0;
 
@@ -57,16 +57,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/index.jsp">Shop</a>
+                        <a class="nav-link" href="index.jsp">Shop</a>
                     </li>
                     <% if (isAdmin){ %>
                         <li class="nav-item">
-                            <a class="nav-link" href="/customers.jsp">Kunder</a>
+                            <a class="nav-link" href="customers.jsp">Kunder</a>
                         </li>
                     <%}%>
                     <% if (userid > 0){ %>
                         <li class="nav-item">
-                            <a class="nav-link" href="/orders.jsp">Ordrer</a>
+                            <a class="nav-link" href="  orders.jsp">Ordrer</a>
                         </li>
                     <%}%>
 
@@ -81,7 +81,7 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li>
-                        <a class="nav-link" href="/FrontController?source=nav&value=cart">
+                        <a class="nav-link" href="FrontController?source=nav&value=cart">
                             <img src="img/shopping-basket.svg" width="30" height="30" class="d-inline-block align-top"
                                  alt="logo">
                         </a>

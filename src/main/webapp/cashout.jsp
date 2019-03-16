@@ -28,13 +28,7 @@
 
         %>
 
-
-
-
-
-
-
-        <form action="/FrontController" method="post">
+        <form action="FrontController" method="post">
             <div class="float-right">
                 <input type="hidden" name="source" value="cartcontrol"/>
                 <button type="submit" name="action" value="shop" class="btn btn-primary">Shop videre</button>

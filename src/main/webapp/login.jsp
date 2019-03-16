@@ -12,7 +12,7 @@
     <div class="row">
 
         <div class="col-md-5">
-            <form method="post" action="/FrontController" role="form">
+            <form method="post" action="FrontController" role="form">
                 <fieldset>
                     <input type="hidden" name="source" value="login"/>
                     <p class="text-uppercase"> Log ind for at handle: </p>

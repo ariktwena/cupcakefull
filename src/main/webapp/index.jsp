@@ -31,7 +31,7 @@
 
         %>
 
-        <form action="/FrontController" method="post">
+        <form action="FrontController" method="post">
             <input type="hidden" name="source" value="addtocart"/>
 
             <div id="cupcakeselectionbox" class="row">
