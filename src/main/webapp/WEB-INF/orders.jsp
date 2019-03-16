@@ -6,7 +6,7 @@
 <%@ page import="java.sql.Date" %>
 <%@page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 
-<%@ include file="include/header.jsp" %>
+<%@ include file="../include/header.jsp" %>
 
 <div class="jumbotron" style="background-color: transparent;">
     <h1>Ordrer</h1>
@@ -29,11 +29,10 @@
                 <%
                     ArrayList<Order> orderList = null;
                     String sCustomerId = request.getParameter("customerid");
-                    if (userid > 0) {
-                        orderList = OrderFacade.getOrderListByCustomerId(userid);
-                    } else
-                    if (sCustomerId != null){
+                    if (sCustomerId != null) {
                         orderList = OrderFacade.getOrderListByCustomerId(Integer.parseInt(sCustomerId));
+                    } else if (userid > 0) {
+                        orderList = OrderFacade.getOrderListByCustomerId(userid);
                     } else {
                         orderList = OrderFacade.getOrderList();
                     }
@@ -72,5 +71,5 @@
 
 </div>
 
-<%@ include file="include/footer.jsp" %>
+<%@ include file="../include/footer.jsp" %>
 

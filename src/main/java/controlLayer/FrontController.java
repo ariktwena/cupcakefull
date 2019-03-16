@@ -45,20 +45,30 @@ public class FrontController extends HttpServlet {
         switch (source) {
 
             case "nav":
-                //session.setAttribute("cart", cart);
-                destination =  "/cart.jsp";
+                switch (request.getParameter("action")) {
+                    case "cart":
+                        destination =  "WEB-INF/cart.jsp";
+                        break;
+                    case "login":
+                        destination =  "WEB-INF/login.jsp";
+                        break;
+                    case "customers":
+                        destination = "WEB-INF/customers.jsp";
+                        break;
+                }
                 break;
             case "customers":
-                String customerID = request.getParameter("customerid");
-                destination = "orders.jsp";
+                String customerId = request.getParameter("customerid");
+                request.setAttribute("customerid", customerId);
+                destination =  "WEB-INF/orders.jsp";
                 break;
             case "orders":
                 String orderId = request.getParameter("order_id");
                 if (orderId != null) {
                     request.setAttribute("order_id", orderId);
-                    destination = "orderdetails.jsp";
+                    destination = "WEB-INF/orderdetails.jsp";
                 } else {
-                    destination = "orders.jsp";
+                    destination = "WEB-INF/orders.jsp";
                 }
                 break;
             case "orderitemcontrol":
@@ -67,7 +77,7 @@ public class FrontController extends HttpServlet {
                         destination = "index.jsp";
                         break;
                     case "orders":
-                        destination = "orders.jsp";
+                        destination = "WEB-INF/orders.jsp";
                         break;
                 }
                 break;
@@ -94,13 +104,13 @@ public class FrontController extends HttpServlet {
                             String.format("Du mangler at vælge bund, top eller antal!",
                                     bottom, top, number));
                 }
-                destination = "/index.jsp";
+                destination = "index.jsp";
                 break;
             case "cart":
                 int cartIndexToRemove = Integer.parseInt(request.getParameter("removeorderline"));
                 cart.remove(cartIndexToRemove);
                 session.setAttribute("cart", cart);
-                destination = "/cart.jsp";
+                destination = "WEB-INF/cart.jsp";
                 break;
             case "cartcontrol":
                 switch (request.getParameter("action")) {
@@ -114,7 +124,7 @@ public class FrontController extends HttpServlet {
                         {
                             request.setAttribute("status","Error");
                             request.setAttribute("message","Log venligst ind for at betale");
-                            destination = "/login.jsp";
+                            destination = "WEB-INF/login.jsp";
                         } else {
                             // Tjek saldo
                             if (grandTotalPrice <= customer.getBalance()){
@@ -129,7 +139,7 @@ public class FrontController extends HttpServlet {
                                     session.setAttribute("customer", customer);
                                     request.setAttribute("status", "OK");
                                     request.setAttribute("message", "Så har du betalt.");
-                                    destination = "/cashout.jsp";
+                                    destination = "WEB-INF/cashout.jsp";
                                 } else {
                                     request.setAttribute("status","Error");
                                     request.setAttribute("message","Kurven er tom. Der er ikke noget at betale.");
@@ -138,7 +148,7 @@ public class FrontController extends HttpServlet {
                             {
                                 request.setAttribute("status","Error");
                                 request.setAttribute("message","Du har ikke nok penge på kontoen.");
-                                destination = "/cashout.jsp";
+                                destination = "WEB-INF/cashout.jsp";
                             }
                         }
                         break;

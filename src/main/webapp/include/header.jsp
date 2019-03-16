@@ -28,7 +28,7 @@
     <%
        // Check om brugeren er logget på
        Customer customer = (Customer)session.getAttribute("customer");
-       String username = "<a href=\"login.jsp\">log på</a>";
+       String username = "<a href=\"FrontController?source=nav&action=login\">log på</a>";
        String logout = " (<a href=\"FrontController?source=logout\">log ud</a>)";
        int userid = 0;
        double balance = 0.0;
@@ -61,12 +61,12 @@
                     </li>
                     <% if (isAdmin){ %>
                         <li class="nav-item">
-                            <a class="nav-link" href="customers.jsp">Kunder</a>
+                            <a class="nav-link" href="FrontController?source=nav&action=customers">Kunder</a>
                         </li>
                     <%}%>
                     <% if (userid > 0){ %>
                         <li class="nav-item">
-                            <a class="nav-link" href="  orders.jsp">Ordrer</a>
+                            <a class="nav-link" href="FrontController?source=orders">Ordrer</a>
                         </li>
                     <%}%>
 
@@ -81,7 +81,7 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li>
-                        <a class="nav-link" href="FrontController?source=nav&value=cart">
+                        <a class="nav-link" href="FrontController?source=nav&action=cart">
                             <img src="img/shopping-basket.svg" width="30" height="30" class="d-inline-block align-top"
                                  alt="logo">
                         </a>

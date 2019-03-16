@@ -5,7 +5,7 @@
 <%@ page import="modelLayer.Bottom" %>
 <%@page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 
-<%@ include file="include/header.jsp" %>
+<%@ include file="../include/header.jsp" %>
 
 <div class="jumbotron" style="background-color: transparent;">
     <h1>Kurv</h1>
@@ -83,5 +83,5 @@
 
 </div>
 
-<%@ include file="include/footer.jsp" %>
+<%@ include file="../include/footer.jsp" %>
 
