@@ -1,6 +1,7 @@
 package dataLayer;
 
 import modelLayer.Bottom;
+import modelLayer.CupCakeException;
 import modelLayer.Top;
 
 import java.sql.Connection;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 public class BottomMapper {
 
     // getBottoms
-    public static ArrayList<Bottom> getBottomList(){
+    public static ArrayList<Bottom> getBottomList() throws CupCakeException {
 
         ArrayList<Bottom> bottomList = new ArrayList<>();
 
@@ -39,7 +40,7 @@ public class BottomMapper {
                 bottomList.add(bottom );
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new CupCakeException(e.getMessage());
         } finally {
             if (resultSet != null) {
                 try {

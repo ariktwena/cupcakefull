@@ -26,9 +26,8 @@
         <h4>Øens bedste cupcakes. Vælg og bestil her:</h4>
 
         <%
-
-        ArrayList<Top> topList = TopFacade.getTopList();
-
+            ArrayList<Top> topList = (ArrayList<Top>) request.getAttribute("toplist");
+            ArrayList<Bottom> bottomList = (ArrayList<Bottom>) request.getAttribute("bottomlist");
         %>
 
         <form action="FrontController" method="post">
@@ -40,7 +39,7 @@
                     <select name="bottom" class="form-control">
                         <option selected disabled>Vælg bund</option>
                         <%
-                            for (Bottom b : BottomFacade.getBottomList() ) {
+                            for (Bottom b : bottomList ) {
                                 out.print("<option value=" + b.getBottomId() +">" + b.getBottomName() + "</option>");
                             }
                         %>
@@ -51,7 +50,7 @@
                     <select name="top" class="form-control">
                         <option selected disabled>Vælg top</option>
                         <%
-                            for (Top t : TopFacade.getTopList() ) {
+                            for (Top t : topList ) {
                                 out.print("<option value=" + t.getTopId() +">" + t.getTopName() + "</option>");
                             }
                         %>
